@@ -1,0 +1,5 @@
+com\auth\jwt\service\UserServiceTest.class
+com\auth\jwt\service\JwtServiceTest.class
+com\auth\jwt\config\SecurityConfigIntegrationTest.class
+com\auth\jwt\controller\AuthControllerIntegrationTest.class
+com\auth\jwt\service\CustomUserDetailsServiceTest.class

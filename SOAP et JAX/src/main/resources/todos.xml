@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<todos>
+    <todo>
+        <completed>false</completed>
+        <id>1</id>
+        <title>Faire les courses</title>
+    </todo>
+    <todo>
+        <completed>false</completed>
+        <id>2</id>
+        <title>Réviser Spring Boot</title>
+    </todo>
+    <todo>
+        <completed>false</completed>
+        <id>3</id>
+        <title>Faire les courses 1</title>
+    </todo>
+    <todo>
+        <completed>false</completed>
+        <id>4</id>
+        <title>test</title>
+    </todo>
+    <todo>
+        <completed>true</completed>
+        <id>5</id>
+        <title>Faire les courses 1</title>
+    </todo>
+    <todo>
+        <completed>false</completed>
+        <id>6</id>
+        <title>yy</title>
+    </todo>
+    <todo>
+        <completed>true</completed>
+        <id>7</id>
+        <title>Faire les courses 1</title>
+    </todo>
+</todos>

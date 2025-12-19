@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/grpc_demo?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: newpassword123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+grpc:
+  server:
+    port: 9091
+    enable: true

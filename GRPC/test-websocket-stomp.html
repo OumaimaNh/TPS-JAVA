@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test WebSocket STOMP</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 14px;
+        }
+
+        #messages {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            padding: 5px;
+            margin: 3px 0;
+        }
+
+        .status {
+            color: green;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Test WebSocket Server (STOMP)</h1>
+
+    <div>
+        <button onclick="connect()">Se connecter</button>
+        <button onclick="disconnect()">Se déconnecter</button>
+        <span id="status" style="margin-left: 20px;"></span>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <input type="text" id="message" placeholder="Entrez un message"
+            onkeypress="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+
+    <h3>Messages reçus:</h3>
+    <div id="messages"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script>
+        let stompClient = null;
+
+        function connect() {
+            const socket = new SockJS('http://localhost:8080/ws');
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, function (frame) {
+                console.log('Connected: ' + frame);
+                addMessage('✓ Connecté au serveur WebSocket', 'status');
+                document.getElementById('status').textContent = '🟢 Connecté';
+                document.getElementById('status').style.color = 'green';
+
+                stompClient.subscribe('/topic/messages', function (message) {
+                    const content = JSON.parse(message.body).content;
+                    addMessage('→ ' + content, 'message');
+                });
+            }, function (error) {
+                console.error('Connection error:', error);
+                addMessage('❌ Erreur de connexion: ' + error, 'error');
+                document.getElementById('status').textContent = '🔴 Erreur';
+                document.getElementById('status').style.color = 'red';
+            });
+        }
+
+        function disconnect() {
+            if (stompClient !== null) {
+                stompClient.disconnect();
+                addMessage('✗ Déconnecté', 'status');
+                document.getElementById('status').textContent = '🔴 Déconnecté';
+                document.getElementById('status').style.color = 'red';
+            }
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('message');
+            const messageContent = messageInput.value.trim();
+
+            if (messageContent === '') {
+                alert('Veuillez entrer un message');
+                return;
+            }
+
+            if (stompClient === null || !stompClient.connected) {
+                alert('Pas de connexion. Cliquez sur "Se connecter" d\'abord.');
+                return;
+            }
+
+            stompClient.send("/app/chat", {}, JSON.stringify({ 'content': messageContent }));
+            messageInput.value = '';
+        }
+
+        function addMessage(message, className) {
+            const messagesDiv = document.getElementById('messages');
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message ' + className;
+            messageElement.textContent = new Date().toLocaleTimeString() + ' - ' + message;
+            messagesDiv.appendChild(messageElement);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\dto\SignupRequest.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\config\SecurityConfig.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\dto\AuthResponse.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\dto\AuthRequest.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\service\CustomUserDetailsService.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\repository\UserRepository.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\service\JwtService.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\controller\AuthController.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\UserAuthJwtApplication.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\controller\SecureController.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\filter\JwtAuthenticationFilter.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\entity\User.java
+C:\EMSI\5IIR S1\JAVA2\Projet D’authentification avec un backend Spring Boot JWT et frontend react js\src\main\java\com\auth\jwt\service\UserService.java
