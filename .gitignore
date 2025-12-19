@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Maven target directories
+target/
+**/target/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Log files
+*.log
